@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You ❤️</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #ffc0d9);
+        }
+
+        .box {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(255, 64, 129, 0.4);
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 38px;
+        }
+
+        p {
+            color: #555;
+            font-size: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #ff4081;
+            color: white;
+        }
+
+        #yes:hover {
+            transform: scale(1.1);
+        }
+
+        #no {
+            background: #555;
+            color: white;
+            position: absolute;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 35px;
+            animation: fly 5s linear forwards;
+        }
+
+        @keyframes fly {
+
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="box" id="box">
+
+        <h1>Do you love me? 🥺❤️</h1>
+
+        <button id="yes">YES 💗</button>
+
+        <button id="no">NO 😈</button>
+
+    </div>
+
+
+
+    <script>
+
+        const noButton = document.getElementById("no");
+        const yesButton = document.getElementById("yes");
+        const box = document.getElementById("box");
+
+
+        noButton.addEventListener("mouseover", function () {
+
+            let x = Math.random() * (window.innerWidth - 120);
+
+            let y = Math.random() * (window.innerHeight - 60);
+
+
+            noButton.style.left = x + "px";
+
+            noButton.style.top = y + "px";
+
+        });
+
+
+
+        yesButton.addEventListener("click", function () {
+
+            box.innerHTML = `
+
+                <h1>I knew itttt 😭💗</h1>
+
+                <p>You are my favourite person ❤️</p>
+
+                <p>I love you more than words can explain 🥺💕</p>
+
+                <h1>Forever & Always ❤️✨</h1>
+
+            `;
+
+
+            setInterval(createHeart, 150);
+
+        });
+
+
+
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("heart");
+
+
+            heart.innerHTML = "❤️";
+
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(function () {
+
+                heart.remove();
+
+            }, 5000);
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
